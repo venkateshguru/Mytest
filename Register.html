@@ -1,0 +1,1010 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Register</title>
+<link href="style.css" rel="stylesheet" type="text/css" />
+<script src="angular.js"></script>
+    <script src="app.js"></script>
+</head>
+<body ng-app="myapp" ng-controller="mainController">
+<form name="userForm" ng-submit="submitForm()" novalidate>
+<div ng-class="{ 'has-error' : userForm.name.$invalid && (userForm.name.$dirty || submitted)}">
+                    <label>Name</label>
+                    <input type="text" name="name" ng-model="user.name" placeholder="Your Name" ng-required="true">
+                    <p ng-show="userForm.name.$error.required && (userForm.name.$dirty || submitted)">Your name is required.</p>
+                </div>
+<div ng-class="{ 'has-error' : userForm.username.$invalid && (userForm.username.$dirty || submitted)}">
+                    <label>Username</label>
+                    <input type="text" name="username" ng-model="user.username" placeholder="Your Username" ng-minlength="3" ng-maxlength="8" required>
+                    <p ng-show="userForm.username.$error.required && (userForm.username.$dirty || submitted)">Your username is required.</p>
+                    <p ng-show="userForm.username.$error.minlength && (userForm.username.$dirty || submitted)">Username is too short.</p>
+                    <p ng-show="userForm.username.$error.maxlength && (userForm.username.$dirty || submitted)">Username is too long.</p>
+                </div>
+ <div ng-class="{ 'has-error' : userForm.password.$invalid && (userForm.password.$dirty || submitted)}">
+                    <label>Password</label>
+                    <input type="Password" name="password" ng-model="user.password" placeholder="Your Password" ng-required="true">
+                    <p ng-show="userForm.password.$error.required && (userForm.password.$dirty || submitted)">Your password is required.</p>
+                </div>
+                <div ng-class="{ 'has-error' : userForm.confirmPassword.$invalid && (userForm.confirmPassword.$dirty || submitted)}">
+                    <label>Confirm Password</label>
+                    <input type="Password" name="confirmPassword" class="form-control" ng-model="user.confirmPassword" placeholder="Confirm Your Password" ng-compare="password" ng-required="true">
+                    <p ng-show="userForm.confirmPassword.$error.required && (userForm.confirmPassword.$dirty || submitted)">Your confirm password is required.</p>
+                    <p ng-show="userForm.confirmPassword.$error.compare  && (userForm.confirmPassword.$dirty || submitted)">Confirm password doesnot match.</p>
+                </div>
+
+ <div ng-class="{ 'has-error' : userForm.email.$invalid && (userForm.email.$dirty || submitted)}">
+                    <label>Email</label>
+                    <input type="email" name="email" ng-model="user.email" placeholder="Your Email Address" ng-required="true">
+                    <p ng-show="userForm.email.$error.required && (userForm.email.$dirty || submitted)">Email is required.</p>
+                    <p ng-show="userForm.email.$error.email && (userForm.email.$dirty || submitted)">Enter a valid email.</p>
+                </div>
+  <div ng-class="{ 'has-error' : userForm.contactno.$invalid  && (userForm.contactno.$dirty || submitted) }">
+                    <label>ContactNo</label>
+                    <input type="text" name="contactno" ng-model="user.contactno" placeholder="Your Contact No" ng-pattern="/^[789]\d{9}$/" maxlength="10" ng-required="true">
+                    <p ng-show="userForm.contactno.$error.pattern  && (userForm.contactno.$dirty || submitted)">Enter a valid contactno.</p>
+                </div>
+  <p>Sex
+    <input name="radiobutton" type="radio" value="radiobutton" ng-required="true"/>
+    <label> Male</label>
+    <label>
+    <input name="radiobutton" type="radio" value="radiobutton" ng-required="true"/>
+Female</label>
+</p>
+<div ng-class="{ 'has-error' : userForm.city.$invalid  && (userForm.city.$dirty || submitted)}">
+<p>City 
+   <input type="text" name="city" id="city" ng-model="user.city" placeholder="Enter your City" ng-required="true"/>
+  </p>
+<p ng-show="userForm.city.$error.required  && (userForm.city.$dirty || submitted)">Enter the city.</p>
+ </div>
+ <div ng-class="{ 'has-error' : userForm.state.$invalid  && (userForm.state.$dirty || submitted)}">
+<p>State
+   <input type="text" name="state" id="state" ng-model="user.state" placeholder="Enter your state" ng-required="true"/>
+  </p>
+<p ng-show="userForm.state.$error.required  && (userForm.state.$dirty || submitted)">Entet the state.</p></div>
+ 
+  <label>Country
+  <select name="select">
+       Afghanistan</option>
+  <option value="AX"
+                            
+                            >
+  Åland Islands (Åland)  </option>
+  <option value="AL"
+                            
+                            >
+  Albania (Shqipëri)  </option>
+  <option value="DZ"
+                            
+                            >
+  Algeria  </option>
+  <option value="AS"
+                            
+                            >
+  American Samoa  </option>
+  <option value="AD"
+                            
+                            >
+  Andorra  </option>
+  <option value="AO"
+                            
+                            >
+  Angola  </option>
+  <option value="AI"
+                            
+                            >
+  Anguilla  </option>
+  <option value="AQ"
+                            
+                            >
+  Antarctica  </option>
+  <option value="AG"
+                            
+                            >
+  Antigua &amp; Barbuda  </option>
+  <option value="AR"
+                            
+                            >
+  Argentina  </option>
+  <option value="AM"
+                            
+                            >
+  Armenia  </option>
+  <option value="AW"
+                            
+                            >
+  Aruba  </option>
+  <option value="AC"
+                            
+                            >
+  Ascension Island  </option>
+  <option value="AU"
+                            
+                            >
+  Australia  </option>
+  <option value="AT"
+                            
+                            >
+  Austria (Österreich)  </option>
+  <option value="AZ"
+                            
+                            >
+  Azerbaijan  </option>
+  <option value="BS"
+                            
+                            >
+  Bahamas  </option>
+  <option value="BH"
+                            
+                            >
+  Bahrain   </option>
+  <option value="BD"
+                            
+                            >
+  Bangladesh  </option>
+  <option value="BB"
+                            
+                            >
+  Barbados  </option>
+  <option value="BY"
+                            
+                            >
+  Belarus   </option>
+  <option value="BE"
+                            
+                            >
+  Belgium  </option>
+  <option value="BZ"
+                            
+                            >
+  Belize  </option>
+  <option value="BJ"
+                            
+                            >
+  Benin (Bénin)  </option>
+  <option value="BM"
+                            
+                            >
+  Bermuda  </option>
+  <option value="BT"
+                            
+                            >
+  Bhutan </option>
+  <option value="BO"
+                            
+                            >
+  Bolivia  </option>
+  <option value="BA"
+                            
+                            >
+  Bosnia &amp; Herzegovina </option>
+  <option value="BW"
+                            
+                            >
+  Botswana  </option>
+  <option value="BV"
+                            
+                            >
+  Bouvet Island  </option>
+  <option value="BR"
+                            
+                            >
+  Brazil (Brasil)  </option>
+  <option value="IO"
+                            
+                            >
+  British Indian Ocean Territory  </option>
+  <option value="VG"
+                            
+                            >
+  British Virgin Islands  </option>
+  <option value="BN"
+                            
+                            >
+  Brunei  </option>
+  <option value="BG"
+                            
+                            >
+  Bulgaria  </option>
+  <option value="BF"
+                            
+                            >
+  Burkina Faso  </option>
+  <option value="BI"
+                            
+                            >
+  Burundi (Uburundi)  </option>
+  <option value="KH"
+                            
+                            >
+  Cambodia  </option>
+  <option value="CM"
+                            
+                            >
+  Cameroon (Cameroun)  </option>
+  <option value="CA"
+                            
+                            >
+  Canada  </option>
+  <option value="IC"
+                            
+                            >
+  Canary Islands (islas Canarias)  </option>
+  <option value="CV"
+                            
+                            >
+  Cape Verde (Kabu Verdi)  </option>
+  <option value="BQ"
+                            
+                            >
+  Caribbean Netherlands  </option>
+  <option value="KY"
+                            
+                            >
+  Cayman Islands  </option>
+  <option value="CF"
+                            
+                            >
+  Central African Republic (République centrafricaine)  </option>
+  <option value="EA"
+                            
+                            >
+  Ceuta &amp; Melilla (Ceuta y Melilla)  </option>
+  <option value="TD"
+                            
+                            >
+  Chad (Tchad)  </option>
+  <option value="CL"
+                            
+                            >
+  Chile  </option>
+  <option value="CN"
+                            
+                            >
+  China  </option>
+  <option value="CX"
+                            
+                            >
+  Christmas Island  </option>
+  <option value="CP"
+                            
+                            >
+  Clipperton Island  </option>
+  <option value="CC"
+                            
+                            >
+  Cocos (Keeling) Islands (Kepulauan Cocos (Keeling))  </option>
+  <option value="CO"
+                            
+                            >
+  Colombia  </option>
+  <option value="KM"
+                            
+                            >
+  Comoros   </option>
+  <option value="CD"
+                            
+                            >
+  Congo (DRC) (Jamhuri ya Kidemokrasia ya Kongo)  </option>
+  <option value="CG"
+                            
+                            >
+  Congo (Republic) (Congo-Brazzaville)  </option>
+  <option value="CK"
+                            
+                            >
+  Cook Islands  </option>
+  <option value="CR"
+                            
+                            >
+  Costa Rica  </option>
+  <option value="CI"
+                            
+                            >
+  Côte d’Ivoire  </option>
+  <option value="HR"
+                            
+                            >
+  Croatia (Hrvatska)  </option>
+  <option value="CU"
+                            
+                            >
+  Cuba  </option>
+  <option value="CW"
+                            
+                            >
+  Curaçao  </option>
+  <option value="CY"
+                            
+                            >
+  Cyprus </option>
+  <option value="CZ"
+                            
+                            >
+  Czech Republic (Ceská republika)  </option>
+  <option value="DK"
+                            
+                            >
+  Denmark (Danmark)  </option>
+  <option value="DG"
+                            
+                            >
+  Diego Garcia  </option>
+  <option value="DJ"
+                            
+                            >
+  Djibouti  </option>
+  <option value="DM"
+                            
+                            >
+  Dominica  </option>
+  <option value="DO"
+                            
+                            >
+  Dominican Republic (República Dominicana)  </option>
+  <option value="EC"
+                            
+                            >
+  Ecuador  </option>
+  <option value="EG"
+                            
+                            >
+  Egypt   </option>
+  <option value="SV"
+                            
+                            >
+  El Salvador  </option>
+  <option value="GQ"
+                            
+                            >
+  Equatorial Guinea (Guinea Ecuatorial)  </option>
+  <option value="ER"
+                            
+                            >
+  Eritrea  </option>
+  <option value="EE"
+                            
+                            >
+  Estonia (Eesti)  </option>
+  <option value="ET"
+                            
+                            >
+  Ethiopia  </option>
+  <option value="FK"
+                            
+                            >
+  Falkland Islands (Islas Malvinas)  </option>
+  <option value="FO"
+                            
+                            >
+  Faroe Islands (Føroyar)  </option>
+  <option value="FJ"
+                            
+                            >
+  Fiji  </option>
+  <option value="FI"
+                            
+                            >
+  Finland (Suomi)  </option>
+  <option value="FR"
+                            
+                            >
+  France  </option>
+  <option value="GF"
+                            
+                            >
+  French Guiana (Guyane française)  </option>
+  <option value="PF"
+                            
+                            >
+  French Polynesia (Polynésie française)  </option>
+  <option value="TF"
+                            
+                            >
+  French Southern Territories (Terres australes françaises)  </option>
+  <option value="GA"
+                            
+                            >
+  Gabon  </option>
+  <option value="GM"
+                            
+                            >
+  Gambia  </option>
+  <option value="GE"
+                            
+                            >
+  Georgia   </option>
+  <option value="DE"
+                            
+                            >
+  Germany (Deutschland)  </option>
+  <option value="GH"
+                            
+                            >
+  Ghana (Gaana)  </option>
+  <option value="GI"
+                            
+                            >
+  Gibraltar  </option>
+  <option value="GR"
+                            
+                            >
+  Greece   </option>
+  <option value="GL"
+                            
+                            >
+  Greenland (Kalaallit Nunaat)  </option>
+  <option value="GD"
+                            
+                            >
+  Grenada  </option>
+  <option value="GP"
+                            
+                            >
+  Guadeloupe  </option>
+  <option value="GU"
+                            
+                            >
+  Guam  </option>
+  <option value="GT"
+                            
+                            >
+  Guatemala  </option>
+  <option value="GG"
+                            
+                            >
+  Guernsey  </option>
+  <option value="GN"
+                            
+                            >
+  Guinea (Guinée)  </option>
+  <option value="GW"
+                            
+                            >
+  Guinea-Bissau (Guiné-Bissau)  </option>
+  <option value="GY"
+                            
+                            >
+  Guyana  </option>
+  <option value="HT"
+                            
+                            >
+  Haiti  </option>
+  <option value="HM"
+                            
+                            >
+  Heard &amp; McDonald Islands  </option>
+  <option value="HN"
+                            
+                            >
+  Honduras  </option>
+  <option value="HK"
+                            
+                            >
+  Hong Kong   </option>
+  <option value="HU"
+                            
+                            >
+  Hungary (Magyarország)  </option>
+  <option value="IS"
+                            
+                            >
+  Iceland (Ísland)  </option>
+  <option value="IN"
+                            
+                              selected
+                            
+                            >
+  India </option>
+  <option value="ID"
+                            
+                            >
+  Indonesia  </option>
+  <option value="IR"
+                            
+                            >
+  Iran  </option>
+  <option value="IQ"
+                            
+                            >
+  Iraq  </option>
+  <option value="IE"
+                            
+                            >
+  Ireland  </option>
+  <option value="IM"
+                            
+                            >
+  Isle of Man  </option>
+  <option value="IL"
+                            
+                            >
+  Israel </option>
+  <option value="IT"
+                            
+                            >
+  Italy (Italia)  </option>
+  <option value="JM"
+                            
+                            >
+  Jamaica  </option>
+  <option value="JP"
+                            
+                            >
+  Japan   </option>
+  <option value="JE"
+                            
+                            >
+  Jersey  </option>
+  <option value="JO"
+                            
+                            >
+  Jordan   </option>
+  <option value="KZ"
+                            
+                            >
+  Kazakhstan  </option>
+  <option value="KE"
+                            
+                            >
+  Kenya  </option>
+  <option value="KI"
+                            
+                            >
+  Kiribati  </option>
+  <option value="XK"
+                            
+                            >
+  Kosovo (Kosovë)  </option>
+  <option value="KW"
+                            
+                            >
+  Kuwait   </option>
+  <option value="KG"
+                            
+                            >
+  Kyrgyzstan   </option>
+  <option value="LA"
+                            
+                            >
+  Laos  </option>
+  <option value="LV"
+                            
+                            >
+  Latvia (Latvija)  </option>
+  <option value="LB"
+                            
+                            >
+  Lebanon   </option>
+  <option value="LS"
+                            
+                            >
+  Lesotho  </option>
+  <option value="LR"
+                            
+                            >
+  Liberia  </option>
+  <option value="LY"
+                            
+                            >
+  Libya   </option>
+  <option value="LI"
+                            
+                            >
+  Liechtenstein  </option>
+  <option value="LT"
+                            
+                            >
+  Lithuania (Lietuva)  </option>
+  <option value="LU"
+                            
+                            >
+  Luxembourg  </option>
+  <option value="MO"
+                            
+                            >
+  Macau   </option>
+  <option value="MK"
+                            
+                            >
+  Macedonia (FYROM)   </option>
+  <option value="MG"
+                            
+                            >
+  Madagascar (Madagasikara)  </option>
+  <option value="MW"
+                            
+                            >
+  Malawi  </option>
+  <option value="MY"
+                            
+                            >
+  Malaysia  </option>
+  <option value="MV"
+                            
+                            >
+  Maldives  </option>
+  <option value="ML"
+                            
+                            >
+  Mali  </option>
+  <option value="MT"
+                            
+                            >
+  Malta  </option>
+  <option value="MH"
+                            
+                            >
+  Marshall Islands  </option>
+  <option value="MQ"
+                            
+                            >
+  Martinique  </option>
+  <option value="MR"
+                            
+                            >
+  Mauritania   </option>
+  <option value="MU"
+                            
+                            >
+  Mauritius (Moris)  </option>
+  <option value="YT"
+                            
+                            >
+  Mayotte  </option>
+  <option value="MX"
+                            
+                            >
+  Mexico (México)  </option>
+  <option value="FM"
+                            
+                            >
+  Micronesia  </option>
+  <option value="MD"
+                            
+                            >
+  Moldova (Republica Moldova)  </option>
+  <option>
+  Monaco  </option>
+  <option value="MN"
+                            
+                            >
+  Mongolia   </option>
+  <option value="ME"
+                            
+                            >
+  Montenegro (Crna Gora)  </option>
+  <option value="MS"
+                            
+                            >
+  Montserrat  </option>
+  <option value="MA"
+                            
+                            >
+  Morocco  </option>
+  <option value="MZ"
+                            
+                            >
+  Mozambique (Moçambique)  </option>
+  <option value="MM"
+                            
+                            >
+  Myanmar (Burma)   </option>
+  <option value="NA"
+                            
+                            >
+  Namibia (Namibië)  </option>
+  <option value="NR"
+                            
+                            >
+  Nauru  </option>
+  <option value="NP"
+                            
+                            >
+  Nepal  </option>
+  <option value="NL"
+                            
+                            >
+  Netherlands (Nederland)  </option>
+  <option value="NC"
+                            
+                            >
+  New Caledonia (Nouvelle-Calédonie)  </option>
+  <option value="NZ"
+                            
+                            >
+  New Zealand  </option>
+  <option value="NI"
+                            
+                            >
+  Nicaragua  </option>
+  <option value="NE"
+                            
+                            >
+  Niger (Nijar)  </option>
+  <option value="NG"
+                            
+                            >
+  Nigeria  </option>
+  <option value="NU"
+                            
+                            >
+  Niue  </option>
+  <option value="NF"
+                            
+                            >
+  Norfolk Island  </option>
+  <option value="MP"
+                            
+                            >
+  Northern Mariana Islands  </option>
+  <option value="KP"
+                            
+                            >
+  North Korea  </option>
+  <option value="NO"
+                            
+                            >
+  Norway (Norge)  </option>
+  <option value="OM"
+                            
+                            >
+  Oman   </option>
+  <option value="PK"
+                            
+                            >
+  Pakistan  </option>
+  <option value="PW"
+                            
+                            >
+  Palau  </option>
+  <option value="PS"
+                            
+                            >
+  Palestine   </option>
+  <option value="PA"
+                            
+                            >
+  Panama (Panamá)  </option>
+  <option value="PG"
+                            
+                            >
+  Papua New Guinea  </option>
+  <option value="PY"
+                            
+                            >
+  Paraguay  </option>
+  <option value="PE"
+                            
+                            >
+  Peru (Perú)  </option>
+  <option value="PH"
+                            
+                            >
+  Philippines  </option>
+  <option value="PN"
+                            
+                            >
+  Pitcairn Islands  </option>
+  <option value="PL"
+                            
+                            >
+  Poland (Polska)  </option>
+  <option value="PT"
+                            
+                            >
+  Portugal  </option>
+  <option value="PR"
+                            
+                            >
+  Puerto Rico  </option>
+  <option value="QA"
+                            
+                            >
+  Qatar   </option>
+  <option value="RE"
+                            
+                            >
+  Réunion (La Réunion)  </option>
+  <option value="RO"
+                            
+                            >
+  Romania (România)  </option>
+  <option value="RU"
+                            
+                            >
+  Russia  </option>
+  <option value="RW"
+                            
+                            >
+  Rwanda  </option>
+  <option value="WS"
+                            
+                            >
+  Samoa  </option>
+  <option value="SM"
+                            
+                            >
+  San Marino  </option>
+  <option value="ST"
+                            
+                            >
+  São Tomé &amp; Príncipe (São Tomé e Príncipe)  </option>
+  <option value="SA"
+                            
+                            >
+  Saudi Arabia   </option>
+  <option value="SN"
+                            
+                            >
+  Senegal  </option>
+  <option value="RS"
+                            
+                            >
+  Serbia </option>
+  <option value="SC"
+                            
+                            >
+  Seychelles  </option>
+  <option value="SL"
+                            
+                            >
+  Sierra Leone  </option>
+  <option value="SG"
+                            
+                            >
+  Singapore  </option>
+  <option value="SX"
+                            
+                            >
+  Sint Maarten  </option>
+  <option value="SK"
+                            
+                            >
+  Slovakia (Slovensko)  </option>
+  <option value="SI"
+                            
+                            >
+  Slovenia (Slovenija)  </option>
+  <option value="SB"
+                            
+                            >
+  Solomon Islands  </option>
+  <option value="SO"
+                            
+                            >
+  Somalia (Soomaaliya)  </option>
+  <option value="ZA"
+                            
+                            >
+  South Africa  </option>
+  <option value="GS"
+                            
+                            >
+  South Georgia &amp; South Sandwich Islands  </option>
+  <option value="KR"
+                            
+                            >
+  South Korea </option>
+  <option value="SS"
+                            
+                            >
+  South Sudan  </option>
+  <option value="ES"
+                            
+                            >
+  Spain (España)  </option>
+  <option value="LK"
+                            
+                            >
+  Sri Lanka  </option>
+  <option value="BL"
+                            
+                            >
+  St. Barthélemy (Saint-Barthélemy)  </option>
+  <option value="SH"
+                            
+                            >
+  St. Helena  </option>
+  <option value="KN"
+                            
+                            >
+  St. Kitts &amp; Nevis  </option>
+  <option>
+  St. Lucia  </option>
+  <option value>
+  St. Martin (Saint-Martin)  </option>
+  <option>
+  St. Pierre &amp; Miquelon (Saint-Pierre-et-Miquelon)  </option>
+  <option>
+  St. Vincent &amp; Grenadines  </option>
+  <option>
+  Sudan   </option>
+  <option>
+  Suriname  </option>
+  <option>
+  Svalbard &amp; Jan Mayen (Svalbard og Jan Mayen)  </option>
+  <option>
+  Swaziland  </option>
+  <option>
+  Sweden (Sverige)  </option>
+  <option>
+  Switzerland (Schweiz)  </option>
+  <option>
+  Syria   </option>
+  <option>
+  Taiwan   </option>
+  <option>
+  Tajikistan  </option>
+  <option>
+  Tanzania  </option>
+  <option>
+  Thailand </option>
+  <option>
+  Timor-Leste  </option>
+  <option>
+  Togo  </option>
+  <option>
+  Tokelau  </option>
+  <option>
+  Tonga  </option>
+  <option>
+  Trinidad &amp; Tobago  </option>
+  <option>
+  Tristan da Cunha  </option>
+  <option>
+  Tunisia  </option>
+  <option>
+  Turkey (Türkiye)  </option>
+  <option>
+  Turkmenistan  </option>
+  <option>
+  Turks &amp; Caicos Islands  </option>
+  <option>
+  Tuvalu  </option>
+  <option>
+  U.S. Outlying Islands  </option>
+  <option>
+  U.S. Virgin Islands  </option>
+  <option>
+  Uganda  </option>
+  <option>
+  Ukraine   </option>
+  <option>
+  United Arab Emirates   </option>
+  <option>
+  United Kingdom  </option>
+  <option>
+  United States  </option>
+  <option>
+  Uruguay  </option>
+  <option>
+  Uzbekistan </option>
+  <option>
+  Vanuatu  </option>
+  <option>
+  Vatican City</option>
+  <option>
+  Venezuela  </option>
+  <option>
+  Vietnam  </option>
+  <option>
+  Wallis &amp; Futuna  </option>
+  <option>
+  Western Sahara </option>
+  <option>
+  Yemen </option>
+  <option>
+  Zambia </option><option>
+  Zimbabwe  </option>
+ 
+  </select><br/><br/>
+  </label>
+  <div ng-class="{ 'has-error' : userForm.terms.$invalid && (userForm.terms.$dirty || submitted)}">
+    <input type="checkbox" value="" name="terms" ng-model="user.terms" ng-required="true"/>
+ <label> I Accept Terms & Conditions</label>
+  <p ng-show="userForm.terms.$error.required && (userForm.terms.$dirty || submitted)">Accept terms & conditions.</p></div>
+  <input type="submit" value="Register now" ng-disabled="form.$invalid" >
+ </form>
+</body>
+</html>
